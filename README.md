@@ -5,12 +5,6 @@
 
 ---
 
-## 🚀 Live Application Preview
-The application is running and accessible locally at:
-👉 **[http://localhost:5173](http://localhost:5173)**
-
----
-
 ## 🏛️ System Architecture & Algorithm Core
 
 The platform implements **CA-RHPP (Adaptive Congestion-Aware Rolling-Horizon Prioritized Planning with Selective Local Conflict Repair)** to solve the Multi-Agent Pickup and Delivery (MAPD) problem across constrained warehouse topologies.
