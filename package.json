@@ -1,0 +1,13 @@
+{
+  "name": "smartstock-daa",
+  "private": true,
+  "description": "DAA course project: warehouse multi-robot path planning (CA-RHPP)",
+  "scripts": {
+    "setup": "npm --prefix frontend install",
+    "start": "npm --prefix frontend run build && node backend/server.js",
+    "dev:backend": "node --watch backend/server.js",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "test": "npm --prefix backend test",
+    "bench": "npm --prefix backend run bench"
+  }
+}
