@@ -1,64 +1,113 @@
-# SmartStock: Enterprise Warehouse Intelligence & Autonomous Fleet Optimization Platform (CA-RHPP)
+# SmartStock: Warehouse Robot Path Planning (CA-RHPP)
 
-> **Design and Analysis of Algorithms (DAA) Research Course Project**  
-> *An adaptive, congestion-aware, rolling-horizon fleet optimizer with selective local conflict repair for autonomous mobile robots (AMRs/AGVs).*
+> Design and Analysis of Algorithms course project.
+> Many robots share one warehouse floor and must deliver orders without colliding.
+> We compare 4 known algorithms with our own, **CA-RHPP**, using real experiments.
 
----
+## Run it
 
-## 🏛️ System Architecture & Algorithm Core
-
-The platform implements **CA-RHPP (Adaptive Congestion-Aware Rolling-Horizon Prioritized Planning with Selective Local Conflict Repair)** to solve the Multi-Agent Pickup and Delivery (MAPD) problem across constrained warehouse topologies.
-
-### 4-Stage Optimization Pipeline:
-1. **Stage 1 — Congestion-Aware Multi-Robot Task Allocation (MRTA)**:
-   - Matches idle robots to pending customer pickup orders.
-   - Cost function penalizes both Euclidean distance and active space-time reservation corridor density:
-     $$\text{Cost}(r, \tau) = \text{Dist}(r, \tau) + \alpha \cdot \text{Congestion}(\text{Path}(r, \tau))$$
-2. **Stage 2 — Dynamic Adaptive Priority Scoring**:
-   - Re-evaluates fleet priority order before each rolling horizon window to prevent low-priority robot starvation:
-     $$\text{Score}(r) = w_{\text{wait}} \cdot \tau_{\text{wait}} + w_{\text{urgency}} \cdot \frac{1}{\text{Deadline} - t + 1} + w_{\text{congest}} \cdot \text{BottleneckDegree}(r)$$
-3. **Stage 3 — Windowed Space-Time Reservation ($A^*$)**:
-   - Plans collision-free paths over time horizon $H = 24$ steps.
-   - Enforces discrete reservation tables for vertices $(v, t)$ and directed edges $(u, v, t)$ to eliminate vertex collisions and edge-swaps.
-4. **Stage 4 — Selective Local Conflict Repair ($k$-LCR)**:
-   - When a robot is obstructed at a bottleneck, extracts only the localized neighborhood of $k$ conflicting robots ($k \ll n$).
-   - Iteratively repairs their trajectories within a bounded budget ($R \le 5$ iterations) without recomputing the entire fleet.
-
----
-
-## 📊 Comparative Baselines Implemented
-
-| Algorithm | Description | Theoretical Time Complexity |
-|---|---|---|
-| **CA-RHPP (Proposed)** | Congestion-aware dynamic priorities with selective local repair | $\mathcal{O}\big((n + R \cdot k) \cdot H(|V|+|E|) \log(H|V|)\big)$ |
-| **RHCR-PP** | Li et al. (AAAI 2021) Rolling-Horizon Collision Resolution | $\mathcal{O}\big(n \cdot H(|V|+|E|) \log(H|V|)\big)$ |
-| **Standard PP** | Fixed FIFO / ID sequential prioritized planning | $\mathcal{O}\big(n \cdot H(|V|+|E|) \log(H|V|)\big)$ |
-| **CBS** | Sharon et al. (AIJ 2015) Conflict-Based Search (Exact Optimal) | $\mathcal{O}\big(2^C \cdot H(|V|+|E|) \log(H|V|)\big)$ |
-| **Independent $A^*$** | Uncoordinated single-agent paths (Collision baseline) | $\mathcal{O}\big(n \cdot (|V|+|E|) \log|V|\big)$ |
-
----
-
-## 💻 Tech Stack & UI/UX Principles
-- **Aesthetic**: Modern enterprise light theme (inspired by Flexport, Linear, AWS Logistics Console). Off-white surfaces (`#f8fafc`), crisp slate borders (`#e2e8f0`), indigo/emerald/amber status tokens. **No dark theme**.
-- **Interactive Canvas**: High-performance HTML5 2D canvas with multi-layer overlays (heatmaps, robot path trails, storage pod racks, picking stations).
-- **Telemetry & Inspector**: Real-time KPI counters (Throughput, Avg Wait, Planning Latency, Collision-Free Guarantee) and click-to-inspect robot telemetry.
-- **DAA Theory Explorer**: Dynamic priority weight tuning sliders, asymptotic Big-O proofs, and pseudocode inspection.
-
----
-
-## 🛠️ How to Run Locally
+Needs Node.js 18 or newer.
 
 ```bash
-# Navigate to the frontend directory
-cd frontend
-
-# Install dependencies (already completed)
-npm install
-
-# Start development server
-npm run dev
-
-# Or build and run preview
-npm run build
-npm run preview
+npm run setup     # install frontend packages (the backend has no dependencies)
+npm start         # build the frontend and start everything on http://localhost:5000
 ```
+
+For development, use two terminals: `npm run dev:backend` and `npm run dev:frontend` (then open http://localhost:5173).
+
+```bash
+npm test          # unit tests for every hand-written algorithm
+npm run bench     # rerun all experiments -> backend/results/REPORT.md
+```
+
+## The problem
+
+- Warehouse = grid graph **G = (V, E)**. Robots move one cell per time step, or wait.
+- Orders arrive all the time: drive to a shelf, pick the item, deliver it to a picking station (*lifelong Multi-Agent Pickup and Delivery*).
+- Two robots may never be in the same cell at the same time, or swap cells in one step.
+- Goal: deliver as many orders as possible, plan fast, and never leave a robot stuck.
+
+## Algorithms (all hand-written, no algorithm libraries)
+
+| Algorithm | Idea | Time per replanning step |
+|---|---|---|
+| Independent A* | Each robot plans alone and ignores the others | O(n · \|V\| log \|V\|) |
+| Standard PP | Robots plan full paths one by one in fixed order, using a reservation table | O(n · T\|V\| log(T\|V\|)) |
+| RHCR-PP (Li et al., AAAI 2021) | Plan only a 20-step window, replan every 5 ticks | O(n · H\|V\| log(H\|V\|)) |
+| Windowed CBS (Sharon et al., AIJ 2015) | Optimal constraint-tree search, gives up after 300 nodes / 100 ms | O(2^C · H\|V\| log(H\|V\|)) |
+| **CA-RHPP (ours)** | RHCR + the improvements below | O(n²m + (n + Rk) · H\|V\| log(H\|V\|)) |
+
+**What CA-RHPP adds to RHCR:**
+
+1. **Hungarian task allocation**: optimal robot-to-order matching (instead of greedy), with a cost for crowded shelves and old orders.
+2. **Dynamic priority with aging**: robots in crowded spots or dead ends plan first. A robot that has waited more than 10 ticks keeps gaining priority, so no robot starves.
+3. **Selective local repair** (idea from MAPF-LNS2, AAAI 2022): if a robot finds no path, replan only it and up to 4 blockers, not the whole fleet.
+4. **Incremental replanning**: when one robot gets a new goal between replans, plan only that robot (1 search instead of n).
+5. **Fast data structures**: BFS true-distance heuristic cached per goal, integer-indexed reservation table, reusable A* arrays (O(1) reset).
+
+A **safety layer** checks every move before it runs, so collisions are impossible. Every time it has to step in is counted as an "emergency stop".
+
+## Results
+
+All numbers are measured by actually running the algorithms (300 ticks, average of 3 random seeds). Full tables: [backend/results/REPORT.md](backend/results/REPORT.md).
+
+| Map (robots) | RHCR-PP orders | CA-RHPP orders | Gain | Waiting time RHCR-PP → CA-RHPP |
+|---|---|---|---|---|
+| Kiva-style warehouse (12) | 115.0 | 132.3 | **+15.1%** | 13.9% → 1.6% |
+| Bottleneck corridor (10) | 92.3 | 106.0 | **+14.8%** | 14.8% → 3.3% |
+| Narrow aisles (16) | 126.0 | 145.0 | **+15.1%** | 12.2% → 2.5% |
+
+- **0 collisions** for every algorithm (safety layer). CA-RHPP needed **0 emergency stops**. Independent A* needed about 3,000.
+- **Longest time any robot stood stuck**, on the busy ablation scenarios: RHCR-PP 90 ticks, CA-RHPP 9 ticks.
+- **Planning time**: CA-RHPP stays around 1 ms per tick. Standard PP and CBS are 10–40× slower, and CBS gives up more often as the fleet grows.
+
+### Ablation (what each part contributes)
+
+Totals over three busy scenarios (warehouse 16, bottleneck 16, narrow 24 robots):
+
+| Variant | Orders | Longest wait |
+|---|---|---|
+| CA-RHPP (all features) | 538.7 | 9 |
+| − incremental replanning | 484.7 (−10.0%) | 9 |
+| − local repair | 537.3 | 13 |
+| − dynamic priority | 541.0 | 12 |
+| − Hungarian allocation | 539.3 | 11 |
+| − BFS heuristic | 534.3 | 14 |
+| + congestion cost in A* (rejected) | 349.0 (−35%) | 21 |
+| RHCR-PP baseline | 477.7 | 90 |
+
+What this shows: incremental replanning gives most of the extra throughput. Repair, priority and Hungarian allocation mainly keep the worst-case wait low. We also tested a congestion penalty inside A* (inspired by Chen et al., AAAI 2024). It made results much worse, because robots chose to wait instead of entering busy cells, so CA-RHPP does not use it.
+
+## Project structure
+
+```
+backend/                     Node.js, zero dependencies
+  server.js                  REST API (built-in http module)
+  src/core/
+    maps.js                  warehouse maps as text
+    Grid.js                  grid graph, adjacency lists
+    MinHeap.js               binary heap priority queue
+    heuristics.js            BFS true-distance + Manhattan heuristics
+    ReservationTable.js      space-time reservation table (vertex + swap conflicts)
+    SpaceTimeAStar.js        windowed space-time A*
+    assignment.js            Hungarian algorithm + greedy assignment
+    random.js                seeded RNG + Fisher–Yates shuffle
+  src/planners/
+    PrioritizedPlanner.js    Standard PP / RHCR-PP / CA-RHPP / Independent A*
+    CBSPlanner.js            windowed Conflict-Based Search
+    taskAllocation.js        greedy vs Hungarian task allocation
+    index.js                 algorithm registry + ablation variants
+  src/simulation/
+    Simulator.js             lifelong pickup-and-delivery simulation + safety layer
+    benchmark.js             comparison, scalability and ablation experiments
+  test/algorithms.test.js    correctness tests (node:test)
+  scripts/run-benchmarks.js  writes results/report.json and REPORT.md
+frontend/                    React + Vite, no UI libraries
+  src/components/            5 tabs: simulation, compare, scalability, ablation, theory
+```
+
+## Limitations
+
+- Grid world with unit-time moves. No turning or acceleration.
+- Prioritized planning is incomplete: in theory it can miss a solution that exists. The safety layer still prevents crashes.
+- Simulation only, up to about 40 robots. Weights were tuned on our three maps.

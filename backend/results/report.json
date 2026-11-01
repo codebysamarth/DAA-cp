@@ -1,0 +1,856 @@
+{
+  "generatedAt": "2026-11-01T16:52:48.370Z",
+  "ticks": 300,
+  "seeds": 3,
+  "compare": [
+    {
+      "mapId": "warehouse",
+      "robots": 12,
+      "ticks": 300,
+      "seeds": 3,
+      "results": [
+        {
+          "algorithm": "independent",
+          "mapId": "warehouse",
+          "robots": 12,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 12.333,
+          "throughput": 4.11,
+          "avgServiceTime": 28,
+          "waitPercent": 88.1,
+          "maxWaitStreak": 283,
+          "emergencyStops": 3140.333,
+          "planMsPerTick": 0.098,
+          "planMsMax": 2.293,
+          "nodesExpanded": 30849.667,
+          "searches": 3432,
+          "failedPlans": 0,
+          "incrementalPlans": 0,
+          "repairsTried": 0,
+          "repairsSucceeded": 0,
+          "cbsCalls": null,
+          "cbsGiveUps": null,
+          "worstWaitStreak": 289,
+          "collisions": 0
+        },
+        {
+          "algorithm": "standard_pp",
+          "mapId": "warehouse",
+          "robots": 12,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 112.333,
+          "throughput": 37.443,
+          "avgServiceTime": 48.967,
+          "waitPercent": 13.733,
+          "maxWaitStreak": 4.333,
+          "emergencyStops": 0,
+          "planMsPerTick": 2.817,
+          "planMsMax": 31.48,
+          "nodesExpanded": 1543721.667,
+          "searches": 720,
+          "failedPlans": 0,
+          "incrementalPlans": 0,
+          "repairsTried": 0,
+          "repairsSucceeded": 0,
+          "cbsCalls": null,
+          "cbsGiveUps": null,
+          "worstWaitStreak": 5,
+          "collisions": 0
+        },
+        {
+          "algorithm": "rhcr_pp",
+          "mapId": "warehouse",
+          "robots": 12,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 115,
+          "throughput": 38.333,
+          "avgServiceTime": 48.167,
+          "waitPercent": 13.9,
+          "maxWaitStreak": 4.667,
+          "emergencyStops": 0,
+          "planMsPerTick": 0.24,
+          "planMsMax": 3.363,
+          "nodesExpanded": 99445.333,
+          "searches": 720,
+          "failedPlans": 0,
+          "incrementalPlans": 0,
+          "repairsTried": 0,
+          "repairsSucceeded": 0,
+          "cbsCalls": null,
+          "cbsGiveUps": null,
+          "worstWaitStreak": 5,
+          "collisions": 0
+        },
+        {
+          "algorithm": "cbs",
+          "mapId": "warehouse",
+          "robots": 12,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 113.667,
+          "throughput": 37.89,
+          "avgServiceTime": 48.233,
+          "waitPercent": 13.967,
+          "maxWaitStreak": 4.667,
+          "emergencyStops": 0,
+          "planMsPerTick": 5.66,
+          "planMsMax": 81.97,
+          "nodesExpanded": 1678971.667,
+          "searches": 33068,
+          "failedPlans": 0,
+          "incrementalPlans": 0,
+          "repairsTried": null,
+          "repairsSucceeded": null,
+          "cbsCalls": 60,
+          "cbsGiveUps": 53,
+          "worstWaitStreak": 5,
+          "collisions": 0
+        },
+        {
+          "algorithm": "ca_rhpp",
+          "mapId": "warehouse",
+          "robots": 12,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 132.333,
+          "throughput": 44.11,
+          "avgServiceTime": 44.6,
+          "waitPercent": 1.633,
+          "maxWaitStreak": 5.667,
+          "emergencyStops": 0,
+          "planMsPerTick": 0.318,
+          "planMsMax": 5.84,
+          "nodesExpanded": 129090.667,
+          "searches": 938.667,
+          "failedPlans": 0,
+          "incrementalPlans": 218.667,
+          "repairsTried": 0,
+          "repairsSucceeded": 0,
+          "cbsCalls": null,
+          "cbsGiveUps": null,
+          "worstWaitStreak": 8,
+          "collisions": 0
+        }
+      ]
+    },
+    {
+      "mapId": "bottleneck",
+      "robots": 10,
+      "ticks": 300,
+      "seeds": 3,
+      "results": [
+        {
+          "algorithm": "independent",
+          "mapId": "bottleneck",
+          "robots": 10,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 6,
+          "throughput": 1.997,
+          "avgServiceTime": 21.233,
+          "waitPercent": 92.733,
+          "maxWaitStreak": 293.333,
+          "emergencyStops": 2772.333,
+          "planMsPerTick": 0.118,
+          "planMsMax": 1.627,
+          "nodesExpanded": 30197,
+          "searches": 2946.667,
+          "failedPlans": 0,
+          "incrementalPlans": 0,
+          "repairsTried": 0,
+          "repairsSucceeded": 0,
+          "cbsCalls": null,
+          "cbsGiveUps": null,
+          "worstWaitStreak": 300,
+          "collisions": 0
+        },
+        {
+          "algorithm": "standard_pp",
+          "mapId": "bottleneck",
+          "robots": 10,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 92.333,
+          "throughput": 30.777,
+          "avgServiceTime": 38.467,
+          "waitPercent": 14.067,
+          "maxWaitStreak": 4.667,
+          "emergencyStops": 0,
+          "planMsPerTick": 2.896,
+          "planMsMax": 31.623,
+          "nodesExpanded": 1175618.333,
+          "searches": 600,
+          "failedPlans": 0,
+          "incrementalPlans": 0,
+          "repairsTried": 0,
+          "repairsSucceeded": 0,
+          "cbsCalls": null,
+          "cbsGiveUps": null,
+          "worstWaitStreak": 6,
+          "collisions": 0
+        },
+        {
+          "algorithm": "rhcr_pp",
+          "mapId": "bottleneck",
+          "robots": 10,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 92.333,
+          "throughput": 30.777,
+          "avgServiceTime": 38.933,
+          "waitPercent": 14.767,
+          "maxWaitStreak": 4.333,
+          "emergencyStops": 0.333,
+          "planMsPerTick": 0.193,
+          "planMsMax": 2.427,
+          "nodesExpanded": 113468,
+          "searches": 603.333,
+          "failedPlans": 0.333,
+          "incrementalPlans": 0,
+          "repairsTried": 0,
+          "repairsSucceeded": 0,
+          "cbsCalls": null,
+          "cbsGiveUps": null,
+          "worstWaitStreak": 5,
+          "collisions": 0
+        },
+        {
+          "algorithm": "cbs",
+          "mapId": "bottleneck",
+          "robots": 10,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 92,
+          "throughput": 30.667,
+          "avgServiceTime": 38.833,
+          "waitPercent": 14.7,
+          "maxWaitStreak": 4.333,
+          "emergencyStops": 0,
+          "planMsPerTick": 6.192,
+          "planMsMax": 101.697,
+          "nodesExpanded": 1676694,
+          "searches": 35109.333,
+          "failedPlans": 0,
+          "incrementalPlans": 0,
+          "repairsTried": null,
+          "repairsSucceeded": null,
+          "cbsCalls": 60,
+          "cbsGiveUps": 57.667,
+          "worstWaitStreak": 5,
+          "collisions": 0
+        },
+        {
+          "algorithm": "ca_rhpp",
+          "mapId": "bottleneck",
+          "robots": 10,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 106,
+          "throughput": 35.333,
+          "avgServiceTime": 45.167,
+          "waitPercent": 3.333,
+          "maxWaitStreak": 9,
+          "emergencyStops": 0,
+          "planMsPerTick": 0.356,
+          "planMsMax": 3.043,
+          "nodesExpanded": 142934.667,
+          "searches": 780.667,
+          "failedPlans": 0,
+          "incrementalPlans": 180.667,
+          "repairsTried": 0,
+          "repairsSucceeded": 0,
+          "cbsCalls": null,
+          "cbsGiveUps": null,
+          "worstWaitStreak": 12,
+          "collisions": 0
+        }
+      ]
+    },
+    {
+      "mapId": "narrow",
+      "robots": 16,
+      "ticks": 300,
+      "seeds": 3,
+      "results": [
+        {
+          "algorithm": "independent",
+          "mapId": "narrow",
+          "robots": 16,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 12,
+          "throughput": 4,
+          "avgServiceTime": 27.3,
+          "waitPercent": 88.333,
+          "maxWaitStreak": 289,
+          "emergencyStops": 4225,
+          "planMsPerTick": 0.139,
+          "planMsMax": 1.097,
+          "nodesExpanded": 50972.667,
+          "searches": 4677.333,
+          "failedPlans": 0,
+          "incrementalPlans": 0,
+          "repairsTried": 0,
+          "repairsSucceeded": 0,
+          "cbsCalls": null,
+          "cbsGiveUps": null,
+          "worstWaitStreak": 294,
+          "collisions": 0
+        },
+        {
+          "algorithm": "standard_pp",
+          "mapId": "narrow",
+          "robots": 16,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 124.667,
+          "throughput": 41.557,
+          "avgServiceTime": 54.233,
+          "waitPercent": 12.333,
+          "maxWaitStreak": 6.333,
+          "emergencyStops": 0.333,
+          "planMsPerTick": 4.951,
+          "planMsMax": 51.18,
+          "nodesExpanded": 2021193.667,
+          "searches": 965.333,
+          "failedPlans": 0.333,
+          "incrementalPlans": 0,
+          "repairsTried": 0,
+          "repairsSucceeded": 0,
+          "cbsCalls": null,
+          "cbsGiveUps": null,
+          "worstWaitStreak": 8,
+          "collisions": 0
+        },
+        {
+          "algorithm": "rhcr_pp",
+          "mapId": "narrow",
+          "robots": 16,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 126,
+          "throughput": 42,
+          "avgServiceTime": 54.133,
+          "waitPercent": 12.167,
+          "maxWaitStreak": 7.667,
+          "emergencyStops": 1.333,
+          "planMsPerTick": 0.282,
+          "planMsMax": 9.027,
+          "nodesExpanded": 97252,
+          "searches": 976,
+          "failedPlans": 1.333,
+          "incrementalPlans": 0,
+          "repairsTried": 0,
+          "repairsSucceeded": 0,
+          "cbsCalls": null,
+          "cbsGiveUps": null,
+          "worstWaitStreak": 10,
+          "collisions": 0
+        },
+        {
+          "algorithm": "cbs",
+          "mapId": "narrow",
+          "robots": 16,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 124.667,
+          "throughput": 41.557,
+          "avgServiceTime": 54.4,
+          "waitPercent": 12.533,
+          "maxWaitStreak": 8,
+          "emergencyStops": 3.667,
+          "planMsPerTick": 5.026,
+          "planMsMax": 75.113,
+          "nodesExpanded": 1118011,
+          "searches": 36967.333,
+          "failedPlans": 3.667,
+          "incrementalPlans": 0,
+          "repairsTried": null,
+          "repairsSucceeded": null,
+          "cbsCalls": 63,
+          "cbsGiveUps": 59.667,
+          "worstWaitStreak": 10,
+          "collisions": 0
+        },
+        {
+          "algorithm": "ca_rhpp",
+          "mapId": "narrow",
+          "robots": 16,
+          "ticks": 300,
+          "runs": 3,
+          "completed": 145,
+          "throughput": 48.33,
+          "avgServiceTime": 52.833,
+          "waitPercent": 2.467,
+          "maxWaitStreak": 6.667,
+          "emergencyStops": 0,
+          "planMsPerTick": 0.314,
+          "planMsMax": 3.2,
+          "nodesExpanded": 122145,
+          "searches": 1214.667,
+          "failedPlans": 0,
+          "incrementalPlans": 252.667,
+          "repairsTried": 1,
+          "repairsSucceeded": 1,
+          "cbsCalls": null,
+          "cbsGiveUps": null,
+          "worstWaitStreak": 9,
+          "collisions": 0
+        }
+      ]
+    }
+  ],
+  "scalability": {
+    "mapId": "warehouse",
+    "ticks": 150,
+    "seeds": 1,
+    "algorithms": [
+      "independent",
+      "standard_pp",
+      "rhcr_pp",
+      "cbs",
+      "ca_rhpp"
+    ],
+    "rows": [
+      {
+        "robots": 4,
+        "independent": {
+          "planMsPerTick": 0.019,
+          "planMsMax": 0.44,
+          "throughput": 8,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "standard_pp": {
+          "planMsPerTick": 0.366,
+          "planMsMax": 7.01,
+          "throughput": 12,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "rhcr_pp": {
+          "planMsPerTick": 0.042,
+          "planMsMax": 0.63,
+          "throughput": 12,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "cbs": {
+          "planMsPerTick": 2.032,
+          "planMsMax": 100.51,
+          "throughput": 12,
+          "cbsGiveUps": 4,
+          "cbsCalls": 30
+        },
+        "ca_rhpp": {
+          "planMsPerTick": 0.057,
+          "planMsMax": 0.82,
+          "throughput": 14,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        }
+      },
+      {
+        "robots": 8,
+        "independent": {
+          "planMsPerTick": 0.074,
+          "planMsMax": 0.79,
+          "throughput": 5.33,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "standard_pp": {
+          "planMsPerTick": 1.956,
+          "planMsMax": 25.68,
+          "throughput": 25.33,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "rhcr_pp": {
+          "planMsPerTick": 0.102,
+          "planMsMax": 1.58,
+          "throughput": 24.67,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "cbs": {
+          "planMsPerTick": 5.277,
+          "planMsMax": 97.84,
+          "throughput": 25.33,
+          "cbsGiveUps": 15,
+          "cbsCalls": 30
+        },
+        "ca_rhpp": {
+          "planMsPerTick": 0.116,
+          "planMsMax": 1.65,
+          "throughput": 29.33,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        }
+      },
+      {
+        "robots": 12,
+        "independent": {
+          "planMsPerTick": 0.094,
+          "planMsMax": 0.6,
+          "throughput": 16,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "standard_pp": {
+          "planMsPerTick": 3.522,
+          "planMsMax": 32.71,
+          "throughput": 38,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "rhcr_pp": {
+          "planMsPerTick": 0.237,
+          "planMsMax": 2.48,
+          "throughput": 37.33,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "cbs": {
+          "planMsPerTick": 6.704,
+          "planMsMax": 101.52,
+          "throughput": 37.33,
+          "cbsGiveUps": 24,
+          "cbsCalls": 30
+        },
+        "ca_rhpp": {
+          "planMsPerTick": 0.343,
+          "planMsMax": 4.62,
+          "throughput": 45.33,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        }
+      },
+      {
+        "robots": 16,
+        "independent": {
+          "planMsPerTick": 0.206,
+          "planMsMax": 1.05,
+          "throughput": 4.67,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "standard_pp": {
+          "planMsPerTick": 6.488,
+          "planMsMax": 53.55,
+          "throughput": 48,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "rhcr_pp": {
+          "planMsPerTick": 0.234,
+          "planMsMax": 2.13,
+          "throughput": 48,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "cbs": {
+          "planMsPerTick": 4.779,
+          "planMsMax": 50.8,
+          "throughput": 48,
+          "cbsGiveUps": 28,
+          "cbsCalls": 30
+        },
+        "ca_rhpp": {
+          "planMsPerTick": 0.33,
+          "planMsMax": 3.56,
+          "throughput": 54,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        }
+      },
+      {
+        "robots": 20,
+        "independent": {
+          "planMsPerTick": 0.545,
+          "planMsMax": 9.33,
+          "throughput": 9.33,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "standard_pp": {
+          "planMsPerTick": 13.546,
+          "planMsMax": 111.23,
+          "throughput": 62,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "rhcr_pp": {
+          "planMsPerTick": 1.178,
+          "planMsMax": 5.9,
+          "throughput": 61.33,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "cbs": {
+          "planMsPerTick": 11.373,
+          "planMsMax": 36.83,
+          "throughput": 62.67,
+          "cbsGiveUps": 75,
+          "cbsCalls": 77
+        },
+        "ca_rhpp": {
+          "planMsPerTick": 0.766,
+          "planMsMax": 4.96,
+          "throughput": 66.67,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        }
+      },
+      {
+        "robots": 24,
+        "independent": {
+          "planMsPerTick": 0.318,
+          "planMsMax": 0.96,
+          "throughput": 4.67,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "standard_pp": {
+          "planMsPerTick": 11.619,
+          "planMsMax": 97.53,
+          "throughput": 69.33,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "rhcr_pp": {
+          "planMsPerTick": 0.544,
+          "planMsMax": 5.2,
+          "throughput": 71.33,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "cbs": {
+          "planMsPerTick": 4.872,
+          "planMsMax": 44.95,
+          "throughput": 71.33,
+          "cbsGiveUps": 30,
+          "cbsCalls": 31
+        },
+        "ca_rhpp": {
+          "planMsPerTick": 0.84,
+          "planMsMax": 6.72,
+          "throughput": 81.33,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        }
+      },
+      {
+        "robots": 28,
+        "independent": {
+          "planMsPerTick": 0.261,
+          "planMsMax": 0.93,
+          "throughput": 4.67,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "standard_pp": {
+          "planMsPerTick": 13.903,
+          "planMsMax": 112.94,
+          "throughput": 80.67,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "rhcr_pp": {
+          "planMsPerTick": 0.731,
+          "planMsMax": 4.98,
+          "throughput": 79.33,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "cbs": {
+          "planMsPerTick": 6.052,
+          "planMsMax": 43.77,
+          "throughput": 79.33,
+          "cbsGiveUps": 33,
+          "cbsCalls": 34
+        },
+        "ca_rhpp": {
+          "planMsPerTick": 1.105,
+          "planMsMax": 7.27,
+          "throughput": 92,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        }
+      },
+      {
+        "robots": 32,
+        "independent": {
+          "planMsPerTick": 0.267,
+          "planMsMax": 1.08,
+          "throughput": 10,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "standard_pp": {
+          "planMsPerTick": 17.185,
+          "planMsMax": 120.27,
+          "throughput": 84.67,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "rhcr_pp": {
+          "planMsPerTick": 0.965,
+          "planMsMax": 7.73,
+          "throughput": 90.67,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        },
+        "cbs": {
+          "planMsPerTick": 6.694,
+          "planMsMax": 41.57,
+          "throughput": 91.33,
+          "cbsGiveUps": 33,
+          "cbsCalls": 34
+        },
+        "ca_rhpp": {
+          "planMsPerTick": 1.304,
+          "planMsMax": 10.88,
+          "throughput": 95.33,
+          "cbsGiveUps": null,
+          "cbsCalls": null
+        }
+      }
+    ]
+  },
+  "ablation": {
+    "ticks": 300,
+    "seeds": 3,
+    "scenarios": [
+      {
+        "mapId": "warehouse",
+        "robots": 16
+      },
+      {
+        "mapId": "bottleneck",
+        "robots": 16
+      },
+      {
+        "mapId": "narrow",
+        "robots": 24
+      }
+    ],
+    "results": [
+      {
+        "id": "ca_rhpp",
+        "name": "CA-RHPP (all features)",
+        "completed": 538.7,
+        "perScenario": [
+          170.3,
+          164.7,
+          203.7
+        ],
+        "waitPercent": 4.9,
+        "worstWaitStreak": 9,
+        "planMsPerTick": 0.568,
+        "nodesExpanded": 760592
+      },
+      {
+        "id": "no_hungarian",
+        "name": "− Hungarian allocation (greedy instead)",
+        "completed": 539.3,
+        "perScenario": [
+          169.3,
+          167.7,
+          202.3
+        ],
+        "waitPercent": 4.8,
+        "worstWaitStreak": 11,
+        "planMsPerTick": 0.527,
+        "nodesExpanded": 730956
+      },
+      {
+        "id": "no_dynamic",
+        "name": "− dynamic priority (fixed order)",
+        "completed": 541,
+        "perScenario": [
+          173.3,
+          160.7,
+          207
+        ],
+        "waitPercent": 5.5,
+        "worstWaitStreak": 12,
+        "planMsPerTick": 0.569,
+        "nodesExpanded": 762546
+      },
+      {
+        "id": "no_repair",
+        "name": "− local repair",
+        "completed": 537.3,
+        "perScenario": [
+          170.3,
+          165.3,
+          201.7
+        ],
+        "waitPercent": 5.1,
+        "worstWaitStreak": 13,
+        "planMsPerTick": 0.529,
+        "nodesExpanded": 767624
+      },
+      {
+        "id": "no_incremental",
+        "name": "− incremental replanning",
+        "completed": 484.7,
+        "perScenario": [
+          151.7,
+          149.7,
+          183.3
+        ],
+        "waitPercent": 15,
+        "worstWaitStreak": 9,
+        "planMsPerTick": 0.478,
+        "nodesExpanded": 620168
+      },
+      {
+        "id": "manhattan",
+        "name": "− BFS heuristic (Manhattan instead)",
+        "completed": 534.3,
+        "perScenario": [
+          168.3,
+          163,
+          203
+        ],
+        "waitPercent": 5.7,
+        "worstWaitStreak": 14,
+        "planMsPerTick": 0.668,
+        "nodesExpanded": 779226
+      },
+      {
+        "id": "with_congestion",
+        "name": "+ congestion cost in A* (tested, rejected)",
+        "completed": 349,
+        "perScenario": [
+          118.3,
+          92.7,
+          138
+        ],
+        "waitPercent": 18.8,
+        "worstWaitStreak": 21,
+        "planMsPerTick": 0.948,
+        "nodesExpanded": 1054450
+      },
+      {
+        "id": "rhcr_pp",
+        "name": "RHCR-PP baseline (reference)",
+        "completed": 477.7,
+        "perScenario": [
+          152,
+          148.3,
+          177.3
+        ],
+        "waitPercent": 15.9,
+        "worstWaitStreak": 90,
+        "planMsPerTick": 0.412,
+        "nodesExpanded": 678183
+      }
+    ]
+  }
+}

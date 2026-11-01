@@ -1,0 +1,16 @@
+{
+  "name": "smartstock-backend",
+  "version": "2.0.0",
+  "description": "Warehouse multi-robot path planning engine (CA-RHPP). Zero dependencies: every algorithm is hand-written.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test/algorithms.test.js",
+    "bench": "node scripts/run-benchmarks.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
